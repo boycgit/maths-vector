@@ -1,0 +1,36 @@
+{
+
+    "env": {
+        "development":{
+            "presets": [
+                [
+                    "env",
+                    {
+                        "modules": false
+                    }
+                ]
+            ],
+            "plugins": [
+                "external-helpers",
+                [
+                    "transform-class-properties",
+                    {
+                        "spec": true
+                    }
+                ]
+            ]},
+        "test": {
+            "presets": [
+                [
+                    "env",
+                    {
+                        "modules": "commonjs"
+                    }
+                ]
+            ],
+            "plugins": [
+                "transform-class-properties"
+            ]
+        }
+    }
+}

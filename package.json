@@ -1,0 +1,46 @@
+{
+  "name": "vectorjs",
+  "version": "0.0.1",
+  "main": "dist/vector.cjs.js",
+  "module": "dist/vector.esm.js",
+  "browser": "dist/vector.umd.js",
+  "size-limit": [
+    {
+      "limit": "9 KB",
+      "path": "dist/vector.cjs.js"
+    }
+  ],
+  "dependencies": {
+    "big.js": "^5.1.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "chance": "^1.0.16",
+    "eslint": "^5.1.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "jest": "^23.4.1",
+    "jsdoc": "^3.5.5",
+    "rollup": "^0.60.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "size-limit": "^0.18.5"
+  },
+  "scripts": {
+    "size": "size-limit",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "npx jest && npm run size",
+    "doc": "./node_modules/.bin/jsdoc -c jsdoc.json"
+  },
+  "files": [
+    "dist"
+  ]
+}
