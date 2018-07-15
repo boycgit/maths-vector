@@ -12,4 +12,12 @@ export default class BigOperatorSystem extends BaseOperatorSystem {
   static minus(x, y) {
     return new Big(x).minus(y);
   }
+
+  static divide(x, y) {
+    return new Big(x).div(y);
+  }
+
+  static multiply(x, y){
+    return new Big(x).times(y);
+  }
 }

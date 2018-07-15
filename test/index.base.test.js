@@ -11,8 +11,8 @@ describe('[Base Operator] 构造函数 - 默认构造函数', () => {
 
   test('构造函数使用 JS 内置算术体系 ', () => {
     expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
-    expect(a.x).toBe(0);
-    expect(a.y).toBe(0);
+    expect(a.x).toBe('0');
+    expect(a.y).toBe('0');
   });
 });
 
@@ -27,7 +27,7 @@ describe('[Base Operator] 静态方法 - fromArray()', () => {
     expect(a).toBeInstanceOf(Vector);
   });
   test('该方法所生成的向量数值来源于数组', () => {
-    expect(a.x).toBe(arr[0]);
-    expect(a.y).toBe(arr[1]);
+    expect(a.x).toBe(''+arr[0]);
+    expect(a.y).toBe(''+arr[1]);
   });
 });

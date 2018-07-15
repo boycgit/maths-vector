@@ -6,8 +6,8 @@ describe('[Big Operator] 构造函数 - 默认构造函数', () => {
   test('默认生成的向量是 (0, 0)', () => {
     const a = new Vector();
     expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(a.x).toBe(0);
-    expect(a.y).toBe(0);
+    expect(a.x).toBe('0');
+    expect(a.y).toBe('0');
   });
 
   test('接受两个入参，形成向量', () => {
@@ -15,8 +15,8 @@ describe('[Big Operator] 构造函数 - 默认构造函数', () => {
     const y = chance.floating();
     const a = new Vector(x, y);
 
-    expect(a.x).toBe(x);
-    expect(a.y).toBe(y);
+    expect(a.x).toBe(x.toString());
+    expect(a.y).toBe(y.toString());
   });
 });
 
@@ -30,23 +30,23 @@ describe('[Big Operator] 静态方法 - fromArray()', () => {
     expect(a).toBeInstanceOf(Vector);
   });
   test('该方法所生成的向量数值来源于数组', () => {
-    expect(a.x).toBe(arr[0]);
-    expect(a.y).toBe(arr[1]);
+    expect(a.x).toBe('' + arr[0]);
+    expect(a.y).toBe('' + arr[1]);
   });
 
   test('兼容空数组的情况', () => {
     a = Vector.fromArray([]);
-    expect(a.x).toBe(0);
-    expect(a.y).toBe(0);
+    expect(a.x).toBe('0');
+    expect(a.y).toBe('0');
   });
 });
 
 describe('[Big Operator] 静态方法 - fromObject()', () => {
   var a;
   const obj = {
-    x: chance.floating(),
-    y: chance.floating(),
-    z: chance.floating()
+    x: '' + chance.floating(),
+    y: '' + chance.floating(),
+    z: '' + chance.floating()
   };
   beforeEach(() => {
     a = Vector.fromObject(obj);
@@ -61,7 +61,7 @@ describe('[Big Operator] 静态方法 - fromObject()', () => {
 
   test('兼容空对象的情况', () => {
     a = Vector.fromArray({});
-    expect(a.x).toBe(0);
-    expect(a.y).toBe(0);
+    expect(a.x).toBe('0');
+    expect(a.y).toBe('0');
   });
 });
