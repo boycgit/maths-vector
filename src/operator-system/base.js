@@ -1,5 +1,5 @@
 export default class BaseOperatorSystem {
-    static name = 'BaseOperatorSystem';
+  static name = 'BaseOperatorSystem';
   static create(x) {
     return x;
   }
@@ -13,6 +13,9 @@ export default class BaseOperatorSystem {
     return x / y;
   }
   static multiply(x, y) {
-    return new x*y;
+    return new x() * y;
+  }
+  static sqrt(x) {
+    return Math.sqrt(x);
   }
 }

@@ -17,7 +17,11 @@ export default class BigOperatorSystem extends BaseOperatorSystem {
     return new Big(x).div(y);
   }
 
-  static multiply(x, y){
+  static multiply(x, y) {
     return new Big(x).times(y);
+  }
+
+  static sqrt(x) {
+    return new Big(x).sqrt();
   }
 }

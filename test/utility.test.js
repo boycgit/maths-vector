@@ -200,105 +200,103 @@ describe('[Big Operator] 实用功能 - subtract()', () => {
   });
 });
 
-
 /* ----------------------------------------------------
     相乘
 ----------------------------------------------------- */
 describe('[Big Operator] 实用功能 - multiplyX()', () => {
-    let a, b, int1, int2, int3, int4;
-    beforeEach(() => {
-        int1 = chance.integer();
-        int2 = chance.integer();
-        int3 = chance.integer();
-        int4 = chance.integer();
-        a = new Vector(int1, int2);
-        b = new Vector(int3, int4);
-    });
+  let a, b, int1, int2, int3, int4;
+  beforeEach(() => {
+    int1 = chance.integer();
+    int2 = chance.integer();
+    int3 = chance.integer();
+    int4 = chance.integer();
+    a = new Vector(int1, int2);
+    b = new Vector(int3, int4);
+  });
 
-    test('两向量的 X 量相乘', () => {
-        const result = a.multiplyX(b);
-        expect(result.x).toBe(new Big(int1).times(int3).toString());
-        expect(result.y).toBe(int2.toString());
-    });
+  test('两向量的 X 量相乘', () => {
+    const result = a.multiplyX(b);
+    expect(result.x).toBe(new Big(int1).times(int3).toString());
+    expect(result.y).toBe(int2.toString());
+  });
 
-    test('该操作不影响原来向量的数值', () => {
-        a.multiplyX(b);
-        expect(a.x).toBe(int1.toString());
-        expect(a.y).toBe(int2.toString());
-        expect(b.x).toBe(int3.toString());
-        expect(b.y).toBe(int4.toString());
-    });
-    test('支持直接和数值相乘', () => {
-        const result = a.multiplyX(int4);
-        expect(result.x).toBe(new Big(int1).times(int4).toString());
-        expect(result.y).toBe(int2.toString());
-    });
+  test('该操作不影响原来向量的数值', () => {
+    a.multiplyX(b);
+    expect(a.x).toBe(int1.toString());
+    expect(a.y).toBe(int2.toString());
+    expect(b.x).toBe(int3.toString());
+    expect(b.y).toBe(int4.toString());
+  });
+  test('支持直接和数值相乘', () => {
+    const result = a.multiplyX(int4);
+    expect(result.x).toBe(new Big(int1).times(int4).toString());
+    expect(result.y).toBe(int2.toString());
+  });
 });
 
 describe('[Big Operator] 实用功能 - multiplyY()', () => {
-    let a, b, int1, int2, int3, int4;
-    beforeEach(() => {
-        int1 = chance.integer();
-        int2 = chance.integer();
-        int3 = chance.integer();
-        int4 = chance.integer();
-        a = new Vector(int1, int2);
-        b = new Vector(int3, int4);
-    });
+  let a, b, int1, int2, int3, int4;
+  beforeEach(() => {
+    int1 = chance.integer();
+    int2 = chance.integer();
+    int3 = chance.integer();
+    int4 = chance.integer();
+    a = new Vector(int1, int2);
+    b = new Vector(int3, int4);
+  });
 
-    test('两向量的 Y 量相乘', () => {
-        const result = a.multiplyY(b);
-        expect(result.x).toBe(int1.toString());
-        expect(result.y).toBe(new Big(int2).times(int4).toString());
-    });
+  test('两向量的 Y 量相乘', () => {
+    const result = a.multiplyY(b);
+    expect(result.x).toBe(int1.toString());
+    expect(result.y).toBe(new Big(int2).times(int4).toString());
+  });
 
-    test('该操作不影响原来向量的数值', () => {
-        a.multiplyY(b);
-        expect(a.x).toBe(int1.toString());
-        expect(a.y).toBe(int2.toString());
-        expect(b.x).toBe(int3.toString());
-        expect(b.y).toBe(int4.toString());
-    });
+  test('该操作不影响原来向量的数值', () => {
+    a.multiplyY(b);
+    expect(a.x).toBe(int1.toString());
+    expect(a.y).toBe(int2.toString());
+    expect(b.x).toBe(int3.toString());
+    expect(b.y).toBe(int4.toString());
+  });
 
-    test('支持直接和数值相乘', () => {
-        const result = a.multiplyY(int3);
-        expect(result.x).toBe(int1.toString());
-        expect(result.y).toBe(new Big(int2).times(int3).toString());
-    });
+  test('支持直接和数值相乘', () => {
+    const result = a.multiplyY(int3);
+    expect(result.x).toBe(int1.toString());
+    expect(result.y).toBe(new Big(int2).times(int3).toString());
+  });
 });
 
 describe('[Big Operator] 实用功能 - multiply()', () => {
-    let a, b, int1, int2, int3, int4;
-    beforeEach(() => {
-        int1 = chance.integer();
-        int2 = chance.integer();
-        int3 = chance.integer();
-        int4 = chance.integer();
-        a = new Vector(int1, int2);
-        b = new Vector(int3, int4);
-    });
+  let a, b, int1, int2, int3, int4;
+  beforeEach(() => {
+    int1 = chance.integer();
+    int2 = chance.integer();
+    int3 = chance.integer();
+    int4 = chance.integer();
+    a = new Vector(int1, int2);
+    b = new Vector(int3, int4);
+  });
 
-    test('两向量相乘，各轴分别相乘', () => {
-        const result = a.multiply(b);
-        expect(result.x).toBe(new Big(int1).times(int3).toString());
-        expect(result.y).toBe(new Big(int2).times(int4).toString());
-    });
+  test('两向量相乘，各轴分别相乘', () => {
+    const result = a.multiply(b);
+    expect(result.x).toBe(new Big(int1).times(int3).toString());
+    expect(result.y).toBe(new Big(int2).times(int4).toString());
+  });
 
-    test('该操作不影响原来向量的数值', () => {
-        a.multiply(b);
-        expect(a.x).toBe(int1.toString());
-        expect(a.y).toBe(int2.toString());
-        expect(b.x).toBe(int3.toString());
-        expect(b.y).toBe(int4.toString());
-    });
+  test('该操作不影响原来向量的数值', () => {
+    a.multiply(b);
+    expect(a.x).toBe(int1.toString());
+    expect(a.y).toBe(int2.toString());
+    expect(b.x).toBe(int3.toString());
+    expect(b.y).toBe(int4.toString());
+  });
 
-    test('支持直接和数值相乘', () => {
-        const result = a.multiply(int3);
-        expect(result.x).toBe(new Big(int1).times(int3).toString());
-        expect(result.y).toBe(new Big(int2).times(int3).toString());
-    });
+  test('支持直接和数值相乘', () => {
+    const result = a.multiply(int3);
+    expect(result.x).toBe(new Big(int1).times(int3).toString());
+    expect(result.y).toBe(new Big(int2).times(int3).toString());
+  });
 });
-
 
 /* ----------------------------------------------------
     相除
@@ -395,5 +393,146 @@ describe('[Big Operator] 实用功能 - divide()', () => {
     const result = a.divide(int3);
     expect(result.x).toBe(new Big(int1).div(int3).toString());
     expect(result.y).toBe(new Big(int2).div(int3).toString());
+  });
+});
+
+/* ----------------------------------------------------
+    反转
+----------------------------------------------------- */
+describe('[Big Operator] 实用功能 - invertX()', () => {
+  let a, int1, int2;
+  beforeEach(() => {
+    int1 = chance.pickone([chance.floating(), chance.integer()]);
+    int2 = chance.pickone([chance.floating(), chance.integer()]);
+    a = new Vector(int1, int2);
+  });
+
+  test('向量 X 轴反转', () => {
+    const result = a.invertX();
+    expect(result.x).toBe(new Big(-int1).toString());
+    expect(result.y).toBe(int2.toString());
+  });
+
+  test('该操作不影响原来向量的数值', () => {
+    a.invertX();
+    expect(a.x).toBe(int1.toString());
+    expect(a.y).toBe(int2.toString());
+  });
+});
+
+describe('[Big Operator] 实用功能 - invertY()', () => {
+  let a, int1, int2;
+  beforeEach(() => {
+    int1 = chance.pickone([chance.floating(), chance.integer()]);
+    int2 = chance.pickone([chance.floating(), chance.integer()]);
+    a = new Vector(int1, int2);
+  });
+
+  test('向量 Y 轴反转', () => {
+    const result = a.invertY();
+    expect(result.x).toBe(int1.toString());
+    expect(result.y).toBe(new Big(-int2).toString());
+  });
+
+  test('该操作不影响原来向量的数值', () => {
+    a.invertY();
+    expect(a.x).toBe(int1.toString());
+    expect(a.y).toBe(int2.toString());
+  });
+});
+
+describe('[Big Operator] 实用功能 - invert()', () => {
+  let a, int1, int2;
+  beforeEach(() => {
+    int1 = chance.pickone([chance.floating(), chance.integer()]);
+    int2 = chance.pickone([chance.floating(), chance.integer()]);
+    a = new Vector(int1, int2);
+  });
+
+  test('向量 X、Y 轴都反转', () => {
+    const result = a.invert();
+    expect(result.x).toBe(new Big(-int1).toString());
+    expect(result.y).toBe(new Big(-int2).toString());
+  });
+
+  test('该操作不影响原来向量的数值', () => {
+    a.invert();
+    expect(a.x).toBe(int1.toString());
+    expect(a.y).toBe(int2.toString());
+  });
+});
+
+/* ----------------------------------------------------
+    归一化
+----------------------------------------------------- */
+describe('[Big Operator] 实用功能 - normalize()', () => {
+  let a;
+  beforeEach(() => {
+    a = new Vector(3, 4);
+  });
+
+  test('转换成单位向量', () => {
+    const result = a.normalize();
+    expect(result.x).toBe('0.6');
+    expect(result.y).toBe('0.8');
+  });
+  test('和函数 norm 作用一致', () => {
+    const result = a.norm();
+    expect(result.x).toBe('0.6');
+    expect(result.y).toBe('0.8');
+  });
+
+  test('该操作不影响原来向量的数值', () => {
+    a.invert();
+    expect(a.x).toBe('3');
+    expect(a.y).toBe('4');
+  });
+});
+
+/* ----------------------------------------------------
+    旋转角度
+----------------------------------------------------- */
+
+describe('[Big Operator] 属性 - rotate', () => {
+  let a;
+  let precision = 7;
+  beforeEach(() => {
+    a = new Vector(1, 1);
+  });
+
+  test('向量 (1, 1) 逆时针旋转 PI/4 后为 (0, sqrt(2))', () => {
+    const result = a.rotate(Math.PI / 4);
+    // 因为精度的问题，只要截取前面几位相等就可以
+    expect(Math.round(result.x)).toBe(0);
+    expect(result.y.slice(0, precision)).toBe(
+      new Big(2)
+        .sqrt()
+        .toString()
+        .slice(0, precision)
+    );
+  });
+  test('该操作不影响原来向量的数值', () => {
+    a.rotate(Math.PI / 4);
+    expect(a.x).toBe('1');
+    expect(a.y).toBe('1');
+  });
+});
+
+describe('[Big Operator] 属性 - rotateDegree', () => {
+  let a;
+  beforeEach(() => {
+    a = new Vector(1, 0);
+  });
+
+  test('向量 (1, 0) 逆时针旋转 90 后为 (0, 1)', () => {
+    const result = a.rotateDegree(90);
+    // 因为精度的问题，只要截取前面几位相等就可以
+    expect(Math.round(result.x)).toBe(0);
+    expect(Math.round(result.y)).toBe(1);
+  });
+  test('该操作不影响原来向量的数值', () => {
+    a.rotate(90);
+    expect(a.x).toBe('1');
+    expect(a.y).toBe('0');
   });
 });
