@@ -450,7 +450,7 @@ class Vector {
    * @param {Number} angle - Number angle Angle in radians
    * @memberof Vector
    * @example
-   *  var vec = new Victor(100, 0);
+   *  var vec = new Vector(100, 0);
    *  vec.rotate(-Math.PI).toString(); // vec is immutable
    *  // => x: -100, y: 0
    */
@@ -475,7 +475,7 @@ class Vector {
    * @param {Number} degree - Number angle Angle in radians
    * @memberof Vector
    * @example
-   *  var vec = new Victor(100, 0);
+   *  var vec = new Vector(100, 0);
    *  vec.rotate(90).toString(); // vec is immutable
    *  // => x: 0, y: 100
    */
@@ -488,12 +488,12 @@ class Vector {
   /**
    * Calculates the dot product of this vector and another
    *
-   * @param {Victor} vec2 - The second vector
-   * @returns
+   * @param {Vector} vec2 - The second vector
+   * @returns {Number} - dot product
    * @memberof Vector
    * @example
-   *     var vec1 = new Victor(100, 50);
-   *     var vec2 = new Victor(200, 60);
+   *     var vec1 = new Vector(100, 50);
+   *     var vec2 = new Vector(200, 60);
    *
    *     vec1.dot(vec2).toString();
    *     // => 23000
@@ -506,14 +506,15 @@ class Vector {
   /**
    * Calculates the cross product of this vector and another
    * 在3D图像学中，叉乘的概念非常有用，可以通过两个向量的叉乘，生成第三个垂直于a，b的法向量，从而构建X、Y、Z坐标系
-   * 在二维空间中，叉乘还有另外一个几何意义就是：aXb等于由向量a和向量b构成的平行四边形的面积
+   * 在二维空间中，叉乘还有另外一个几何意义就是：aXb等于由向量a和向量b构成的平行四边形的面积；
+   * 定义向量a、b，当aXb<0时（X就表示叉乘），b对应的线段在a的顺时针方向；当aXb=0时，a、b共线；当aXb>0时，b在a的逆时针方向。（注意：aXb=-bXa，因此判断时要注意顺序）
    *
-   * @param {Victor} vec2 - The second vector
-   * @returns
+   * @param {Vector} vec2 - The second vector
+   * @returns {Number} - cross product
    * @memberof Vector
    * @example
-   *     var vec1 = new Victor(100, 50);
-   *     var vec2 = new Victor(200, 60);
+   *     var vec1 = new Vector(100, 50);
+   *     var vec2 = new Vector(200, 60);
    *
    *     vec1.cross(vec2).toString();
    *     // => -4000
@@ -526,18 +527,18 @@ class Vector {
   /**
    * Projects a vector onto another vector, setting itself to the result.
    *
-   * @param {*} vec2
-   * @returns
+   * @param {Vector} vec2
+   * @returns {Vector}
    * @memberof Vector
    * @example
-   *     var vec = new Victor(100, 0);
-   *     var vec2 = new Victor(100, 100);
+   *     var vec = new Vector(100, 0);
+   *     var vec2 = new Vector(100, 100);
    *     vec.projectOnto(vec2).toString();
    *     // => x:50, y:50
    *
    */
   projectOnto(vec2) {
-    const { plus, multiply, divide } = this.operatorSystem;
+    const { multiply, divide } = this.operatorSystem;
 
     // 求解向量上的分解因子
     var coeff = divide(this.dot(vec2), vec2.lengthSq);
@@ -547,22 +548,149 @@ class Vector {
   /**
    * get cos angle between of two angle
    *
-   * @param {*} vec2
-   * @returns
+   * @param {Vector} vec2
+   * @returns {Number} - cos value of angle
    * @memberof Vector
    * @example
-   *     var vec = new Victor(100, 0);
-   *     var vec2 = new Victor(100, 100);
-   *     vec.projectOnto(vec2).toString();
-   *     // => x:50, y:50
-   *
+   *     var vec = new Vector(1, 1);
+   *     var vec2 = new Vector(1, 1);
+   *     vec.cosAngleBetween(vec2).toString();
+   *     // => 1
    */
-  cosAngleBetween(vec2){
-    return this.dot(vec2).divide(this.length).divide(vec.length)
+  cosAngleBetween(vec2) {
+    return this.divide(this.length)
+      .divide(vec2.length)
+      .dot(vec2);
   }
 
-  angleBetween(vec2){
-    return Math.acos(this.cosAngleBetween(vec2));
+  /**
+   * get angle between of two vector， in radians CCW
+   *
+   * @param {Vector} vec2
+   * @returns {Number} - angle between of two vector
+   * @memberof Vector
+   * @example
+   *     var vec = new Vector(1, 0);
+   *     var vec2 = new Vector(1, 1);
+   *     vec.angleBetween(vec2).toString();
+   *     // => PI / 4
+   */
+  angleBetween(vec2) {
+    return Math.acos(this.cosAngleBetween(vec2)).toString();
+  }
+
+  /**
+   * Calculates the distance of the X axis between this vector and another
+   *
+   * @param {Vector} vec - The second vector
+   * @returns {Number} - Distance
+   * @memberof Vector
+   * @example
+   *     var vec1 = new Vector(100, 50);
+   *     var vec2 = new Vector(200, 60);
+   *
+   *     vec1.distanceX(vec2);
+   *     // => -100
+   */
+  distanceX(vec) {
+    const { minus } = this.operatorSystem;
+
+    return minus(this.x, vec.x).toString();
+  }
+
+  /**
+   * Same as `distanceX()` but always returns an absolute number
+   *
+   * @param {Vector} vec - The second vector
+   * @returns {Number} - Absolute Distance
+   * @memberof Vector
+   * @example
+   *     var vec1 = new Vector(100, 50);
+   *     var vec2 = new Vector(200, 60);
+   *
+   *     vec1.absDistanceX(vec2);
+   *     // => 100
+   */
+  absDistanceX(vec) {
+    const { abs } = this.operatorSystem;
+    return abs(this.distanceX(vec)).toString();
+  }
+
+  /**
+   * Calculates the distance of the Y axis between this vector and another
+   *
+   * @param {Vector} vec - The second vector
+   * @returns {Number} - Distance
+   * @memberof Vector
+   * @example
+   *     var vec1 = new Vector(100, 50);
+   *     var vec2 = new Vector(200, 60);
+   *
+   *     vec1.distanceY(vec2);
+   *     // => -100
+   */
+  distanceY(vec) {
+    const { minus } = this.operatorSystem;
+    return minus(this.y, vec.y).toString();
+  }
+
+  /**
+   * Same as `distanceY()` but always returns an absolute number
+   *
+   * @param {Vector} vec - The second vector
+   * @returns {Number} - Absolute Distance
+   * @memberof Vector
+   * @example
+   *     var vec1 = new Vector(100, 50);
+   *     var vec2 = new Vector(200, 60);
+   *
+   *     vec1.absDistanceY(vec2);
+   *     // => 100
+   */
+  absDistanceY(vec) {
+    const { abs } = this.operatorSystem;
+    return abs(this.distanceY(vec)).toString();
+  }
+
+  /**
+   * Calculates euclidean distance between this vector and another
+   *
+   * @param {Vector} vec The second vector
+   * @return {Number} Distance
+   * @memberof Vector
+   * @example
+   *     var vec1 = new Vector(100, 50);
+   *     var vec2 = new Vector(200, 60);
+   *
+   *     vec1.distance(vec2);
+   *     // => 10100
+   *
+   */
+  distance(vec) {
+    const { sqrt } = this.operatorSystem;
+    return sqrt(this.distanceSq(vec)).toString();
+  }
+
+  /**
+   * Calculates the squared euclidean distance between this vector and another
+   * If the distance is only needed for comparison, this function is faster than  `distance`.
+   *
+   * @param {Vector} vec The second vector
+   * @return {Number} Distance
+   * @memberof Vector
+   * @example
+   *     var vec1 = new Vector(100, 50);
+   *     var vec2 = new Vector(200, 60);
+   *
+   *     vec1.distanceSq(vec2);
+   *     // => 10100
+   *
+   */
+  distanceSq(vec) {
+    const { plus, multiply } = this.operatorSystem;
+    const dx = this.distanceX(vec);
+    const dy = this.distanceY(vec);
+    return plus(multiply(dx, dx), multiply(dy, dy)).toString();
   }
 }
 

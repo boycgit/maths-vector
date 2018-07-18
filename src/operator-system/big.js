@@ -24,4 +24,7 @@ export default class BigOperatorSystem extends BaseOperatorSystem {
   static sqrt(x) {
     return new Big(x).sqrt();
   }
+  static abs(x) {
+    return new Big(x).abs();
+  }
 }

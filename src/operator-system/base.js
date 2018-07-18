@@ -18,4 +18,7 @@ export default class BaseOperatorSystem {
   static sqrt(x) {
     return Math.sqrt(x);
   }
+  static abs(x) {
+    return Math.abs(x);
+  }
 }
