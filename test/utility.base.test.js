@@ -1,13 +1,16 @@
 import Vector from '../src/index';
 import Chance from 'chance';
-import Big from 'big.js';
+import { BaseOperatorSystem } from '../src/operator-system';
 
 const chance = new Chance();
+
+// 设置计算系统为基础计算系统
+Vector.SYSTEM = BaseOperatorSystem;
 
 /* ----------------------------------------------------
     相加
 ----------------------------------------------------- */
-describe('[Big Operator] 实用功能 - addX()', () => {
+describe('[Base Operator] 实用功能 - addX()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -36,13 +39,13 @@ describe('[Big Operator] 实用功能 - addX()', () => {
     expect(result.x).toBe((int1 + int4).toString());
     expect(result.y).toBe(int2.toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - addY()', () => {
+describe('[Base Operator] 实用功能 - addY()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -72,13 +75,13 @@ describe('[Big Operator] 实用功能 - addY()', () => {
     expect(result.x).toBe(int1.toString());
     expect(result.y).toBe((int2 + int3).toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - add()', () => {
+describe('[Base Operator] 实用功能 - add()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -108,16 +111,16 @@ describe('[Big Operator] 实用功能 - add()', () => {
     expect(result.x).toBe((int1 + int3).toString());
     expect(result.y).toBe((int2 + int3).toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     相减
 ----------------------------------------------------- */
-describe('[Big Operator] 实用功能 - subtractX()', () => {
+describe('[Base Operator] 实用功能 - subtractX()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -146,13 +149,13 @@ describe('[Big Operator] 实用功能 - subtractX()', () => {
     expect(result.x).toBe((int1 - int4).toString());
     expect(result.y).toBe(int2.toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - subtractY()', () => {
+describe('[Base Operator] 实用功能 - subtractY()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -182,13 +185,13 @@ describe('[Big Operator] 实用功能 - subtractY()', () => {
     expect(result.x).toBe(int1.toString());
     expect(result.y).toBe((int2 - int3).toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - subtract()', () => {
+describe('[Base Operator] 实用功能 - subtract()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -218,16 +221,16 @@ describe('[Big Operator] 实用功能 - subtract()', () => {
     expect(result.x).toBe((int1 - int3).toString());
     expect(result.y).toBe((int2 - int3).toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     相乘
 ----------------------------------------------------- */
-describe('[Big Operator] 实用功能 - multiplyX()', () => {
+describe('[Base Operator] 实用功能 - multiplyX()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -240,7 +243,7 @@ describe('[Big Operator] 实用功能 - multiplyX()', () => {
 
   test('两向量的 X 量相乘', () => {
     const result = a.multiplyX(b);
-    expect(result.x).toBe(new Big(int1).times(int3).toString());
+    expect(result.x).toBe((int1 * int3).toString());
     expect(result.y).toBe(int2.toString());
   });
 
@@ -253,16 +256,17 @@ describe('[Big Operator] 实用功能 - multiplyX()', () => {
   });
   test('支持直接和数值相乘', () => {
     const result = a.multiplyX(int4);
-    expect(result.x).toBe(new Big(int1).times(int4).toString());
+    expect(result.x).toBe((int1 * int4).toString());
     expect(result.y).toBe(int2.toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - multiplyY()', () => {
+describe('[Base Operator] 实用功能 - multiplyY()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -276,7 +280,7 @@ describe('[Big Operator] 实用功能 - multiplyY()', () => {
   test('两向量的 Y 量相乘', () => {
     const result = a.multiplyY(b);
     expect(result.x).toBe(int1.toString());
-    expect(result.y).toBe(new Big(int2).times(int4).toString());
+    expect(result.y).toBe((int2 * int4).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -290,15 +294,16 @@ describe('[Big Operator] 实用功能 - multiplyY()', () => {
   test('支持直接和数值相乘', () => {
     const result = a.multiplyY(int3);
     expect(result.x).toBe(int1.toString());
-    expect(result.y).toBe(new Big(int2).times(int3).toString());
+    expect(result.y).toBe((int2 * int3).toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - multiply()', () => {
+describe('[Base Operator] 实用功能 - multiply()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -311,8 +316,8 @@ describe('[Big Operator] 实用功能 - multiply()', () => {
 
   test('两向量相乘，各轴分别相乘', () => {
     const result = a.multiply(b);
-    expect(result.x).toBe(new Big(int1).times(int3).toString());
-    expect(result.y).toBe(new Big(int2).times(int4).toString());
+    expect(result.x).toBe((int1 * int3).toString());
+    expect(result.y).toBe((int2 * int4).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -325,20 +330,20 @@ describe('[Big Operator] 实用功能 - multiply()', () => {
 
   test('支持直接和数值相乘', () => {
     const result = a.multiply(int3);
-    expect(result.x).toBe(new Big(int1).times(int3).toString());
-    expect(result.y).toBe(new Big(int2).times(int3).toString());
+    expect(result.x).toBe((int1 * int3).toString());
+    expect(result.y).toBe((int2 * int3).toString());
   });
 
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     相除
 ----------------------------------------------------- */
-describe('[Big Operator] 实用功能 - divideX()', () => {
+describe('[Base Operator] 实用功能 - divideX()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -351,7 +356,7 @@ describe('[Big Operator] 实用功能 - divideX()', () => {
 
   test('两向量的 X 量相除', () => {
     const result = a.divideX(b);
-    expect(result.x).toBe(new Big(int1).div(int3).toString());
+    expect(result.x).toBe((int1 / int3).toString());
     expect(result.y).toBe(int2.toString());
   });
 
@@ -364,17 +369,17 @@ describe('[Big Operator] 实用功能 - divideX()', () => {
   });
   test('支持直接和数值相除', () => {
     const result = a.divideX(int4);
-    expect(result.x).toBe(new Big(int1).div(int4).toString());
+    expect(result.x).toBe((int1 / int4).toString());
     expect(result.y).toBe(int2.toString());
   });
 
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - divideY()', () => {
+describe('[Base Operator] 实用功能 - divideY()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -388,7 +393,7 @@ describe('[Big Operator] 实用功能 - divideY()', () => {
   test('两向量的 Y 量相除', () => {
     const result = a.divideY(b);
     expect(result.x).toBe(int1.toString());
-    expect(result.y).toBe(new Big(int2).div(int4).toString());
+    expect(result.y).toBe((int2 / int4).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -402,16 +407,16 @@ describe('[Big Operator] 实用功能 - divideY()', () => {
   test('支持直接和数值相除', () => {
     const result = a.divideY(int3);
     expect(result.x).toBe(int1.toString());
-    expect(result.y).toBe(new Big(int2).div(int3).toString());
+    expect(result.y).toBe((int2 / int3).toString());
   });
 
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - divide()', () => {
+describe('[Base Operator] 实用功能 - divide()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.integer();
@@ -424,8 +429,8 @@ describe('[Big Operator] 实用功能 - divide()', () => {
 
   test('两向量相除，各轴分别相除', () => {
     const result = a.divide(b);
-    expect(result.x).toBe(new Big(int1).div(int3).toString());
-    expect(result.y).toBe(new Big(int2).div(int4).toString());
+    expect(result.x).toBe((int1 / int3).toString());
+    expect(result.y).toBe((int2 / int4).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -438,20 +443,19 @@ describe('[Big Operator] 实用功能 - divide()', () => {
 
   test('支持直接和数值相除', () => {
     const result = a.divide(int3);
-    expect(result.x).toBe(new Big(int1).div(int3).toString());
-    expect(result.y).toBe(new Big(int2).div(int3).toString());
+    expect(result.x).toBe((int1 / int3).toString());
+    expect(result.y).toBe((int2 / int3).toString());
   });
-
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     反转
 ----------------------------------------------------- */
-describe('[Big Operator] 实用功能 - invertX()', () => {
+describe('[Base Operator] 实用功能 - invertX()', () => {
   let a, int1, int2;
   beforeEach(() => {
     int1 = chance.pickone([chance.floating(), chance.integer()]);
@@ -461,7 +465,7 @@ describe('[Big Operator] 实用功能 - invertX()', () => {
 
   test('向量 X 轴反转', () => {
     const result = a.invertX();
-    expect(result.x).toBe(new Big(-int1).toString());
+    expect(result.x).toBe((-int1).toString());
     expect(result.y).toBe(int2.toString());
   });
 
@@ -470,13 +474,12 @@ describe('[Big Operator] 实用功能 - invertX()', () => {
     expect(a.x).toBe(int1.toString());
     expect(a.y).toBe(int2.toString());
   });
-
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - invertY()', () => {
+describe('[Base Operator] 实用功能 - invertY()', () => {
   let a, int1, int2;
   beforeEach(() => {
     int1 = chance.pickone([chance.floating(), chance.integer()]);
@@ -487,7 +490,7 @@ describe('[Big Operator] 实用功能 - invertY()', () => {
   test('向量 Y 轴反转', () => {
     const result = a.invertY();
     expect(result.x).toBe(int1.toString());
-    expect(result.y).toBe(new Big(-int2).toString());
+    expect(result.y).toBe((-int2).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -495,13 +498,12 @@ describe('[Big Operator] 实用功能 - invertY()', () => {
     expect(a.x).toBe(int1.toString());
     expect(a.y).toBe(int2.toString());
   });
-
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 实用功能 - invert()', () => {
+describe('[Base Operator] 实用功能 - invert()', () => {
   let a, int1, int2;
   beforeEach(() => {
     int1 = chance.pickone([chance.floating(), chance.integer()]);
@@ -511,8 +513,8 @@ describe('[Big Operator] 实用功能 - invert()', () => {
 
   test('向量 X、Y 轴都反转', () => {
     const result = a.invert();
-    expect(result.x).toBe(new Big(-int1).toString());
-    expect(result.y).toBe(new Big(-int2).toString());
+    expect(result.x).toBe((-int1).toString());
+    expect(result.y).toBe((-int2).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -520,16 +522,15 @@ describe('[Big Operator] 实用功能 - invert()', () => {
     expect(a.x).toBe(int1.toString());
     expect(a.y).toBe(int2.toString());
   });
-
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     归一化
 ----------------------------------------------------- */
-describe('[Big Operator] 实用功能 - normalize()', () => {
+describe('[Base Operator] 实用功能 - normalize()', () => {
   let a;
   beforeEach(() => {
     a = new Vector(3, 4);
@@ -551,8 +552,8 @@ describe('[Big Operator] 实用功能 - normalize()', () => {
     expect(a.x).toBe('3');
     expect(a.y).toBe('4');
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
@@ -560,7 +561,7 @@ describe('[Big Operator] 实用功能 - normalize()', () => {
     旋转角度
 ----------------------------------------------------- */
 
-describe('[Big Operator] 属性 - rotate', () => {
+describe('[Base Operator] 属性 - rotate', () => {
   let a;
   let precision = 7;
   beforeEach(() => {
@@ -572,8 +573,7 @@ describe('[Big Operator] 属性 - rotate', () => {
     // 因为精度的问题，只要截取前面几位相等就可以
     expect(Math.round(result.x)).toBe(0);
     expect(result.y.slice(0, precision)).toBe(
-      new Big(2)
-        .sqrt()
+      Math.sqrt(2)
         .toString()
         .slice(0, precision)
     );
@@ -583,12 +583,12 @@ describe('[Big Operator] 属性 - rotate', () => {
     expect(a.x).toBe('1');
     expect(a.y).toBe('1');
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 属性 - rotateDegree', () => {
+describe('[Base Operator] 属性 - rotateDegree', () => {
   let a;
   beforeEach(() => {
     a = new Vector(1, 0);
@@ -605,7 +605,7 @@ describe('[Big Operator] 属性 - rotateDegree', () => {
     expect(a.x).toBe('1');
     expect(a.y).toBe('0');
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });

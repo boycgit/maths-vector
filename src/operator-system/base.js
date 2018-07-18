@@ -1,19 +1,19 @@
 export default class BaseOperatorSystem {
-  static name = 'BaseOperatorSystem';
+  name = 'BaseOperatorSystem';
   static create(x) {
-    return x;
+    return Number(x);
   }
   static plus(x, y) {
-    return x + y;
+    return Number(x) + Number(y);
   }
   static minus(x, y) {
-    return x - y;
+    return Number(x) - Number(y);
   }
   static divide(x, y) {
-    return x / y;
+    return Number(x) / Number(y);
   }
   static multiply(x, y) {
-    return new x() * y;
+    return  Number(x) * Number(y);
   }
   static sqrt(x) {
     return Math.sqrt(x);

@@ -34,7 +34,7 @@ class Vector {
    */
   constructor(x = 0, y = 0) {
     // 默认采用大数操作
-    this.config({ system: 'big' });
+    // this.config({ system: 'big' });
     this._x = x;
     this._y = y;
   }
@@ -43,12 +43,12 @@ class Vector {
     return this._x.toString();
   }
   set x(v) {
-    this._x = this.operatorSystem.create(x);
+    this._x = this.operatorSystem.create(v);
   }
   get y() {
     return this._y.toString();
   }
-  set x(y) {
+  set y(v) {
     this._y = this.operatorSystem.create(v);
   }
 

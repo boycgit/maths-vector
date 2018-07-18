@@ -1,13 +1,16 @@
 import Vector from '../src/index';
 import Chance from 'chance';
-import Big from 'big.js';
+import { BaseOperatorSystem } from '../src/operator-system';
 
 const chance = new Chance();
+
+// 设置计算系统为基础计算系统
+Vector.SYSTEM = BaseOperatorSystem;
 
 /* ----------------------------------------------------
     点积（内积）
 ----------------------------------------------------- */
-describe('[Big Operator] 向量乘积相关 - dot()', () => {
+describe('[Base Operator] 向量乘积相关 - dot()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.floating({ min: 0, max: 100, fixed: 8 });
@@ -20,12 +23,7 @@ describe('[Big Operator] 向量乘积相关 - dot()', () => {
 
   test('两向量内积是数值', () => {
     const result = a.dot(b);
-    expect(result).toBe(
-      new Big(int1)
-        .times(int3)
-        .plus(new Big(int2).times(int4))
-        .toString()
-    );
+    expect(result).toBe((int1 * int3 + int2 * int4).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -35,16 +33,16 @@ describe('[Big Operator] 向量乘积相关 - dot()', () => {
     expect(b.x).toBe(int3.toString());
     expect(b.y).toBe(int4.toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     外积（叉积）
 ----------------------------------------------------- */
-describe('[Big Operator] 向量乘积相关 - cross()', () => {
+describe('[Base Operator] 向量乘积相关 - cross()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.floating({ min: 0, max: 100, fixed: 8 });
@@ -57,12 +55,7 @@ describe('[Big Operator] 向量乘积相关 - cross()', () => {
 
   test('两向量外积也是数值', () => {
     const result = a.cross(b);
-    expect(result).toBe(
-      new Big(int1)
-        .times(int4)
-        .minus(new Big(int2).times(int3))
-        .toString()
-    );
+    expect(result).toBe((int1 * int4 - int2 * int3).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -72,16 +65,16 @@ describe('[Big Operator] 向量乘积相关 - cross()', () => {
     expect(b.x).toBe(int3.toString());
     expect(b.y).toBe(int4.toString());
   });
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     外积（叉积）
 ----------------------------------------------------- */
-describe('[Big Operator] 向量乘积相关 - projectOnto()', () => {
+describe('[Base Operator] 向量乘积相关 - projectOnto()', () => {
   let a, b;
   beforeEach(() => {
     a = new Vector(100, 0);
@@ -102,16 +95,16 @@ describe('[Big Operator] 向量乘积相关 - projectOnto()', () => {
     expect(b.y).toBe('20');
   });
 
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     两向量的夹角 cos 值
 ----------------------------------------------------- */
-describe('[Big Operator] 向量乘积相关 - cosAngleBetween()', () => {
+describe('[Base Operator] 向量乘积相关 - cosAngleBetween()', () => {
   let a, b;
   beforeEach(() => {
     a = new Vector(3, 4);
@@ -131,16 +124,16 @@ describe('[Big Operator] 向量乘积相关 - cosAngleBetween()', () => {
     expect(b.y).toBe('3');
   });
 
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     两向量的夹角
 ----------------------------------------------------- */
-describe('[Big Operator] 向量乘积相关 - angleBetween()', () => {
+describe('[Base Operator] 向量乘积相关 - angleBetween()', () => {
   let a, b;
   let precision = 7;
   beforeEach(() => {
@@ -151,7 +144,7 @@ describe('[Big Operator] 向量乘积相关 - angleBetween()', () => {
   test(' (1, 0) 和 (0, 1) 两向量之间的夹角为 PI / 4', () => {
     const result = a.angleBetween(b);
     expect(result.slice(0, precision)).toBe(
-      new Big(Math.PI / 4).toString().slice(0, precision)
+      (Math.PI / 4).toString().slice(0, precision)
     );
   });
 
@@ -163,16 +156,16 @@ describe('[Big Operator] 向量乘积相关 - angleBetween()', () => {
     expect(b.y).toBe('1');
   });
 
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
 /* ----------------------------------------------------
     距离
 ----------------------------------------------------- */
-describe('[Big Operator] 向量距离 - distanceX()', () => {
+describe('[Base Operator] 向量距离 - distanceX()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.floating({ min: 0, max: 100, fixed: 8 });
@@ -185,13 +178,8 @@ describe('[Big Operator] 向量距离 - distanceX()', () => {
 
   test('两向量 X 轴量相减', () => {
     const result = a.distanceX(b);
-    expect(result).toBe(new Big(int1).minus(int3).toString());
-    expect(a.absDistanceX(b)).toBe(
-      new Big(int1)
-        .minus(int3)
-        .abs()
-        .toString()
-    );
+    expect(result).toBe((int1 - int3).toString());
+    expect(a.absDistanceX(b)).toBe(Math.abs(int1 - int3).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -202,13 +190,13 @@ describe('[Big Operator] 向量距离 - distanceX()', () => {
     expect(b.y).toBe(int4.toString());
   });
 
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 向量距离 - distanceY()', () => {
+describe('[Base Operator] 向量距离 - distanceY()', () => {
   let a, b, int1, int2, int3, int4;
   beforeEach(() => {
     int1 = chance.floating({ min: 0, max: 100, fixed: 8 });
@@ -221,13 +209,8 @@ describe('[Big Operator] 向量距离 - distanceY()', () => {
 
   test('两向量 Y 轴量相减', () => {
     const result = a.distanceY(b);
-    expect(result).toBe(new Big(int2).minus(int4).toString());
-    expect(a.absDistanceY(b)).toBe(
-      new Big(int2)
-        .minus(int4)
-        .abs()
-        .toString()
-    );
+    expect(result).toBe((int2 - int4).toString());
+    expect(a.absDistanceY(b)).toBe(Math.abs(int2 - int4).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -238,13 +221,13 @@ describe('[Big Operator] 向量距离 - distanceY()', () => {
     expect(b.y).toBe(int4.toString());
   });
 
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });
 
-describe('[Big Operator] 向量距离 - distance()', () => {
+describe('[Base Operator] 向量距离 - distance()', () => {
   let a, b;
   beforeEach(() => {
     a = new Vector(100, 50);
@@ -254,7 +237,7 @@ describe('[Big Operator] 向量距离 - distance()', () => {
   test('两向量(100, 50)、(200, 60)距离的平方是 10100', () => {
     const result = a.distanceSq(b);
     expect(result).toBe('10100');
-    expect(a.distance(b)).toBe(new Big('10100').sqrt().toString());
+    expect(a.distance(b)).toBe(Math.sqrt(10100).toString());
   });
 
   test('该操作不影响原来向量的数值', () => {
@@ -265,8 +248,8 @@ describe('[Big Operator] 向量距离 - distance()', () => {
     expect(b.y).toBe('60');
   });
 
-  test('使用 JS 内置大数算术体系', () => {
-    expect(a.operatorSystem.name).toBe('BigOperatorSystem');
-    expect(b.operatorSystem.name).toBe('BigOperatorSystem');
+  test('使用 JS 内置基础算术体系', () => {
+    expect(a.operatorSystem.name).toBe('BaseOperatorSystem');
+    expect(b.operatorSystem.name).toBe('BaseOperatorSystem');
   });
 });

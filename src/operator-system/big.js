@@ -2,7 +2,7 @@ import Big from 'big.js';
 import BaseOperatorSystem from './base';
 
 export default class BigOperatorSystem extends BaseOperatorSystem {
-  static name = 'BigOperatorSystem';
+  name = 'BigOperatorSystem';
   static create(x) {
     return new Big(x);
   }
