@@ -37,8 +37,10 @@
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "test": "npx jest && npm run size",
-    "doc": "./node_modules/.bin/jsdoc -c jsdoc.json"
+    "test": "./node_modules/.bin/jest && npm run size",
+    "doc": "./node_modules/.bin/jsdoc -c jsdoc.json",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
+    "release": "standard-version"
   },
   "files": [
     "dist"

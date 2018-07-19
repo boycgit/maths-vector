@@ -692,6 +692,86 @@ class Vector {
     const dy = this.distanceY(vec);
     return plus(multiply(dx, dx), multiply(dy, dy)).toString();
   }
+
+  /**
+   * Returns a true if vector is (0, 0)
+   *
+   * @returns {Boolean} -
+   * @memberof Vector
+   * @example
+   *     var vec = new Victor();
+   *     vec.isZero();
+   *     // => true
+   *
+   */
+  isZero() {
+    const { equal } = this.operatorSystem;
+    return equal(this.x, 0) && equal(this.y, 0);
+  }
+  /**
+   * Returns a true if this vector is the same as another
+   *
+   *
+   * @return {Boolean}
+   * @memberof Vector
+   * @example 
+   *     var vec1 = new Victor(100, 50);
+   *     var vec2 = new Victor(100, 50);
+   *     vec1.isEqualTo(vec2);
+   *
+   *     // => true
+   * 
+   */
+  isEqualTo(vec2) {
+    const { equal } = this.operatorSystem;
+    return equal(this.x, vec2.x) && equal(this.y, vec2.y);
+  }
+
+  /**
+   * Returns an string representation of the vector
+   *
+   * @return {String}
+   * @memberof Vector
+   * @example
+   *     var vec = new Victor(10, 20);
+   *     vec.toString();
+   *
+   *     // => x:10, y:20
+   */
+  toString() {
+    return 'x:' + this.x + ', y:' + this.y;
+  }
+  /**
+   * Returns an array representation of the vector
+   *
+   * @return {Array}
+   * @memberof Vector
+   * @example
+   *     var vec = new Victor(10, 20);
+   *     vec.toArray();
+   *     // => [10, 20]
+   */
+  toArray() {
+    return [this.x, this.y];
+  }
+
+  /**
+   * Returns an object representation of the vector
+   *
+   * ### Examples:
+
+    * @return {Object}
+    * @memberof Vector
+    * @example
+    *     var vec = new Victor(10, 20);
+    *
+    *     vec.toObject();
+    *     // => { x: 10, y: 20 }
+    *
+    */
+  toObject() {
+    return { x: this.x, y: this.y };
+  }
 }
 
 export default Vector;

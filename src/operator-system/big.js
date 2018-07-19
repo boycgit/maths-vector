@@ -27,4 +27,8 @@ export default class BigOperatorSystem extends BaseOperatorSystem {
   static abs(x) {
     return new Big(x).abs();
   }
+
+  static equal(x, y){
+    return new Big(x).eq(y);
+  }
 }

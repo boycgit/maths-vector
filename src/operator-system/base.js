@@ -21,4 +21,7 @@ export default class BaseOperatorSystem {
   static abs(x) {
     return Math.abs(x);
   }
+  static equal(x, y){
+    return Number(x) === Number(y);
+  }
 }
