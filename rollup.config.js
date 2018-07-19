@@ -1,6 +1,6 @@
-import resolve from '_rollup-plugin-node-resolve@3.3.0@rollup-plugin-node-resolve';
+import resolve from 'rollup-plugin-node-resolve';
 // import commonjs from 'rollup-plugin-commonjs';
-import babel from '_rollup-plugin-babel@3.0.7@rollup-plugin-babel';
+import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 
 export default [
