@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/boycgit/vectorjs/compare/v0.0.1...v1.0.0) (2018-07-19)
+
+
+### Features
+
+* **creating:** add isZero、isEqualTo、toArray、toObject function ([152f4ba](https://github.com/boycgit/vectorjs/commit/152f4ba))
+
+
+
 <a name="0.0.1"></a>
 ## 0.0.1 (2018-07-19)
 

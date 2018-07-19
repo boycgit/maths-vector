@@ -1,6 +1,6 @@
 {
   "name": "vectorjs",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "dist/vector.cjs.js",
   "module": "dist/vector.esm.js",
   "browser": "dist/vector.umd.js",
@@ -30,12 +30,14 @@
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-terser": "^1.0.1",
+    "rollup-plugin-uglify": "^4.0.0",
     "size-limit": "^0.18.5"
   },
   "scripts": {
     "size": "size-limit",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "build": "rollup -c",
+    "build": "rollup -c && rollup --config rollup.config.production.js",
     "dev": "rollup -c -w",
     "test": "./node_modules/.bin/jest && npm run size",
     "doc": "./node_modules/.bin/jsdoc -c jsdoc.json",
