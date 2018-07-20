@@ -1,15 +1,30 @@
 {
-  "name": "vectorjs",
+  "name": "maths-vector",
   "version": "1.0.0",
   "main": "dist/vector.cjs.js",
   "module": "dist/vector.esm.js",
   "browser": "dist/vector.umd.js",
+  "author": "boycgit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boycgit/maths-vector.git"
+  },
   "size-limit": [
     {
       "limit": "9 KB",
       "path": "dist/vector.cjs.js"
     }
   ],
+  "scripts": {
+    "size": "./node_modules/.bin/size-limit",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "build": "rollup -c && rollup --config rollup.config.production.js",
+    "dev": "rollup -c -w",
+    "test": "./node_modules/.bin/jest && npm run size",
+    "doc": "./node_modules/.bin/jsdoc -c jsdoc.json",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
+    "release": "standard-version"
+  },
   "dependencies": {
     "big.js": "^5.1.2"
   },
@@ -20,10 +35,6 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "chance": "^1.0.16",
-    "eslint": "^5.1.0",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.13.0",
     "jest": "^23.4.1",
     "jsdoc": "^3.5.5",
     "rollup": "^0.60.0",
@@ -33,16 +44,6 @@
     "rollup-plugin-terser": "^1.0.1",
     "rollup-plugin-uglify": "^4.0.0",
     "size-limit": "^0.18.5"
-  },
-  "scripts": {
-    "size": "size-limit",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
-    "build": "rollup -c && rollup --config rollup.config.production.js",
-    "dev": "rollup -c -w",
-    "test": "./node_modules/.bin/jest && npm run size",
-    "doc": "./node_modules/.bin/jsdoc -c jsdoc.json",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
-    "release": "standard-version"
   },
   "files": [
     "dist"
