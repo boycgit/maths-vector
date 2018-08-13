@@ -1,12 +1,11 @@
-![logo](_media/icon.svg)
 
-# docsify <small>4.7.0</small>
+# maths-vector <small>1.0.0</small>
 
-> A magical documentation site generator.
+> A JavaScript 2D vector class with methods for common vector operations
 
-* Simple and lightweight (~19kB gzipped)
-* No statically built html files
-* Multiple themes
+* immutable, a Vector is not changed by its methods.
+* built-in [big.js](http://mikemcl.github.io/big.js/), support for arbitrary-precision decimal arithmetic; 
+* functions are chainable
 
-[GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](#docsify)
+[GitHub](https://github.com/boycgit/maths-vector)
+[Get Started](#maths-vector)
