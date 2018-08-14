@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.org/boycgit/maths-vector.svg?branch=master)](https://travis-ci.org/boycgit/maths-vector) [![Coverage Status](https://coveralls.io/repos/github/boycgit/maths-vector/badge.svg?branch=master)](https://coveralls.io/github/boycgit/maths-vector?branch=master) [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php) [![npm version](https://badge.fury.io/js/maths-vector.svg)](https://badge.fury.io/js/maths-vector)
 
-This repo is inspired by [victor](https://github.com/maxkueng/victor/) ,provide Vector class with methods for common vector operations。
+该仓库是因 [victor](https://github.com/maxkueng/victor/) 激发而编写的，主要是为了提供数学中的 **向量操作** 的能力。
 
-The big difference from [victor](https://github.com/maxkueng/victor/) is that the Vector instance is immutable.
+之所以 ”重复造轮子“ 是因为 [](https://github.com/maxkueng/victor/) 实例是可变（mutable）,使用起来非常的掣肘
 
 ## features
 
@@ -13,7 +13,7 @@ The big difference from [victor](https://github.com/maxkueng/victor/) is that th
 - functions are chainable, you can do `new Vector(1,2).add(2).multiply(3).dot(new Vector(4, 5))` and so on;
 - 
 
-## Installation
+## 安装
 
 ### Node.js / Browserify
 
@@ -26,7 +26,7 @@ var Vector = require('vector');
 var vec = new Vector(42, 1337);
 ```
 
-### Global object
+### 全局对象
 
 Include the pre-built script.
 
@@ -53,7 +53,7 @@ npm test
 npm run doc
 ```
 
-then open the generated `out/index.html` file in your browser.
+在浏览器中打开所生成的 `out/index.html` 文件
 
 ## License
 
