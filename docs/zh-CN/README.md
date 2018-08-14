@@ -18,11 +18,11 @@
 ### Node.js / Browserify
 
 ```bash
-npm install vector --save
+npm install maths-vector --save
 ```
 
 ```javascript
-var Vector = require('vector');
+var Vector = require('maths-vector');
 var vec = new Vector(42, 1337);
 ```
 
