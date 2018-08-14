@@ -1,11 +1,11 @@
 import Vector from '../src/index';
 import Chance from 'chance';
-import { BaseOperatorSystem } from '../src/operator-system';
+import OperatorSystem from '../src/operator-system';
 
 const chance = new Chance();
 
 // 设置计算系统为基础计算系统
-Vector.SYSTEM = BaseOperatorSystem;
+Vector.SYSTEM = OperatorSystem['base'];
 
 /* ----------------------------------------------------
     向量长度

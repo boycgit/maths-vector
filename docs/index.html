@@ -8,13 +8,52 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4.7.0/themes/vue.css">
 </head>
+<style>
+.lds-dual-ring {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #fdd;
+  border-color: #fdd transparent #fdd transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+section.cover ul{
+  max-width: 380px;
+}
+section.cover .cover-main ul{
+  text-align: left;
+}
+section.cover .cover-main ul li{
+  list-style-type: disc;
+}
+</style>
 <body>
-  <div id="app">加载中</div>
+  <div id="app"><div class="lds-dual-ring"></div></div>
   <script>
     window.$docsify = {
       coverpage: true,
+      ga:'UA-69473481-2', 
       loadNavbar: true,
-      coverpage: ['/', '/zh-cn/'],
+      loadSidebar: true,
+      coverpage: ['/', '/zh-CN/'],
+      subMaxLevel: 2,
       name: 'maths-vector', 
       repo: 'https://github.com/boycgit/maths-vector'
     }
@@ -24,6 +63,13 @@
       navigator.serviceWorker.register('sw.js')
     }
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4.7.0/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2.0.2/dist/docsify-copy-code.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/plugins/ga.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/plugins/emoji.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/plugins/external-script.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/plugins/zoom-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.15.0/components/prism-cpp.min.js"></script>
+
 </body>
 </html>

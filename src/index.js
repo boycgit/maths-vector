@@ -1,5 +1,11 @@
-import OperatorSystem, { BigOperatorSystem } from './operator-system';
+import OperatorSystem, {
+  BigOperatorSystem,
+  BaseOperatorSystem
+} from './operator-system';
 import { radian2degree, degree2radian } from './util';
+
+export { BaseOperatorSystem, BigOperatorSystem };
+
 /**
  * Vector - 2D vector class for common vector operations, support [big.js](https://github.com/MikeMcl/big.js) for arbitrary-precision decimal arithmetic
  */
@@ -714,13 +720,13 @@ class Vector {
    *
    * @return {Boolean}
    * @memberof Vector
-   * @example 
+   * @example
    *     var vec1 = new Victor(100, 50);
    *     var vec2 = new Victor(100, 50);
    *     vec1.isEqualTo(vec2);
    *
    *     // => true
-   * 
+   *
    */
   isEqualTo(vec2) {
     const { equal } = this.operatorSystem;

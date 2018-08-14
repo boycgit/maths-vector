@@ -88,7 +88,7 @@ describe('[Big Operator] 向量乘积相关 - projectOnto()', () => {
     b = new Vector(20, 20);
   });
 
-  test('从 (100, 100) 投影到 (20, 20) 上为 (50, 50)', () => {
+  test('从 (100, 0) 投影到 (20, 20) 上为 (50, 50)', () => {
     const result = a.projectOnto(b);
     expect(result.x).toBe('50');
     expect(result.y).toBe('50');

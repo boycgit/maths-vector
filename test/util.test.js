@@ -1,6 +1,5 @@
 import { radian2degree, degree2radian } from '../src/util';
 import Chance from 'chance';
-const chance = new Chance();
 
 /* ----------------------------------------------------
     radian2degree
