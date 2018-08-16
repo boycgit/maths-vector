@@ -3,7 +3,7 @@
 
 ## Vector {docsify-ignore}
 
-Vector - 2D vector class for common vector operations, support [big.js](https://github.com/MikeMcl/big.js) for arbitrary-precision decimal arithmetic
+Vector - 提供 2D 向量（vector）计算能力的工具类，内置 [big.js](https://github.com/MikeMcl/big.js)，支持任意精度的十进制算术
 
 **Kind**: global class
 
@@ -61,18 +61,18 @@ Vector - 2D vector class for common vector operations, support [big.js](https://
 
 ### new Vector([x], [y])
 
-Constructor. Will also work without the `new` keyword
+构造函数 Will also work without the `new` keyword
 
-| Param | Type     | Default | Description         |
-| ----- | -------- | ------- | ------------------- |
-| [x]   | `Number` | `0`     | Value of the x axis |
-| [y]   | `Number` | `0`     | Value of the y axis |
+| Param | Type     | Default | Description |
+| ----- | -------- | ------- | ----------- |
+| [x]   | `Number` | `0`     | X 轴数值       |
+| [y]   | `Number` | `0`     | Y 轴数值       |
 
 <a name="Vector+x"></a>
 
 ### vector.x
 
-value for the X component
+x 轴数值
 
 **Kind**: instance property of [`Vector`](#Vector)  
 **Example**
@@ -86,7 +86,7 @@ var vec = new Vector(100, 50);
 
 ### vector.y
 
-value for the Y component
+y 轴数值
 
 **Kind**: instance property of [`Vector`](#Vector)  
 **Example**
@@ -100,7 +100,7 @@ var vec = new Vector(100, 50);
 
 ### vector.length
 
-length / magnitude of vector
+向量长度
 
 **Kind**: instance property of [`Vector`](#Vector)  
 **Access**: public  
@@ -116,7 +116,7 @@ var vec1 = Vector(3, 4);
 
 ### vector.lengthSq
 
-the squared length. If the length is only needed for comparison, this function is faster than length.
+长度的平方数值 如果你仅仅是想要比较两个向量的长度数值，该函数运算速度快于 `length`
 
 **Kind**: instance property of [`Vector`](#Vector)  
 **Access**: public  
@@ -125,7 +125,7 @@ the squared length. If the length is only needed for comparison, this function i
 
 ### vector.angle
 
-the angle towards X in radians
+偏离 X 轴的弧度
 
 **Kind**: instance property of [`Vector`](#Vector)  
 **Access**: public  
@@ -141,7 +141,7 @@ var vec1 = Vector(1, 1);
 
 ### vector.angleDegree
 
-Same as `angle` but returns degrees
+功能和 `angle` 相似，返回以度数单位的角度值
 
 **Kind**: instance property of [`Vector`](#Vector)  
 **Read only**: true  
@@ -156,7 +156,7 @@ var vec1 = Vector(1, 1);
 
 ### vector.verticalAngle
 
-Returns the angle towards Y in radians.
+偏离 Y 轴的弧度
 
 **Kind**: instance property of [`Vector`](#Vector)  
 **Read only**: true  
@@ -171,7 +171,7 @@ var vec1 = Vector(2, 1);
 
 ### vector.verticalAngleDegree
 
-Same as `verticalAngle` but returns degrees
+功能和 `verticalAngle` 相似，返回以度数单位的角度值
 
 **Kind**: instance property of [`Vector`](#Vector)  
 **Read only**: true  
