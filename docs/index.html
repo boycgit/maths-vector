@@ -55,7 +55,28 @@ section.cover .cover-main ul li{
       coverpage: ['/', '/zh-CN/'],
       subMaxLevel: 2,
       name: 'maths-vector', 
-      repo: 'https://github.com/boycgit/maths-vector'
+      repo: 'https://github.com/boycgit/maths-vector',
+      // plugins: [function(hook, vm) {
+      //   hook.afterEach(function(html,next) {
+      //     var $dom = document.querySelectorAll('#dataConfig');
+      //     console.log(888, $dom);
+      //     next(html);
+      //   });
+      // }],
+      // `<a href="${href}"${attrs}>${text}</a>`
+      markdown: {
+        smartypants: true,
+        renderer: {
+          link: function (href, title, text) {
+            if(href.indexOf('#Vector')===0){
+              href = href.replace(/[\+\.]/g, '-');
+            }
+            // console.log(href, title, text);
+            var html = this.origin.link.apply(this, [href, title, text]);
+            return html;
+          }
+        }
+      }
     }
   </script>
   <script>
@@ -63,12 +84,12 @@ section.cover .cover-main ul li{
       navigator.serviceWorker.register('sw.js')
     }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.7.0/lib/docsify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2.0.2/dist/docsify-copy-code.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/plugins/ga.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/plugins/emoji.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/plugins/external-script.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4.6.10/lib/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.7.0/lib/plugins/ga.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.7.0/lib/plugins/emoji.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.7.0/lib/plugins/external-script.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.7.0/lib/plugins/zoom-image.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.15.0/components/prism-cpp.min.js"></script>
 
 </body>

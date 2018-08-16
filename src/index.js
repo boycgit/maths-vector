@@ -45,12 +45,27 @@ class Vector {
     this._y = y;
   }
 
+  /**
+   * value for the X component
+   * @memberof Vector
+   * @example
+   *    var vec = new Vector(100, 50);
+   *    vec.x; // 100
+   */
   get x() {
     return this._x.toString();
   }
   set x(v) {
     this._x = this.operatorSystem.create(v);
   }
+
+  /**
+   * value for the Y component
+   * @memberof Vector
+   * @example
+   *    var vec = new Vector(100, 50);
+   *    vec.y; // 50
+   */
   get y() {
     return this._y.toString();
   }
@@ -58,31 +73,80 @@ class Vector {
     this._y = this.operatorSystem.create(v);
   }
 
-  // Returns the length
+  /**
+   * length / magnitude of vector
+   * @public
+   * @readonly
+   * @memberof Vector
+   * @example
+   *     var vec1 = Vector(3, 4);
+   *     vec1.length; // 5
+   */
   get length() {
     const { sqrt } = this.operatorSystem;
     return sqrt(this.lengthSq).toString();
   }
 
-  // Returns the squared length. If the length is only needed for comparison, this function is faster than length.
+  /**
+   * the squared length. If the length is only needed for comparison, this function is faster than length.
+   * @public
+   * @readonly
+   * @memberof Vector
+   */
   get lengthSq() {
     const { plus, multiply } = this.operatorSystem;
     return plus(multiply(this.x, this.x), multiply(this.y, this.y)).toString();
   }
 
+  /**
+   * the angle towards X in radians
+   * @public
+   * @readonly
+   * @memberof Vector
+   * @example
+   *     var vec1 = Vector(1, 1);
+   *     vec1.angle; // 0.785398 (Math.PI/4)
+   */
   get angle() {
     return Math.atan2(this.y, this.x).toString();
   }
 
+  /**
+   * Same as `angle` but returns degrees
+   *
+   * @readonly
+   * @memberof Vector
+   * @example
+   *     var vec1 = Vector(1, 1);
+   *     vec1.angleDegree; // 45
+   */
   get angleDegree() {
     const { multiply } = this.operatorSystem;
     return radian2degree(this.angle, multiply).toString();
   }
 
+  /**
+   * Returns the angle towards Y in radians.
+   *
+   * @readonly
+   * @memberof Vector
+   * @example
+   *     var vec1 = Vector(2, 1);
+   *     vec1.verticalAngle; // 1.047197 (Math.PI/3)
+   */
   get verticalAngle() {
     return Math.atan2(this.x, this.y).toString();
   }
 
+  /**
+   * Same as `verticalAngle` but returns degrees
+   *
+   * @readonly
+   * @memberof Vector
+   * @example
+   *     var vec1 = Vector(2, 1);
+   *     vec1.angleDegree; // 60
+   */
   get verticalAngleDegree() {
     const { multiply } = this.operatorSystem;
     return radian2degree(this.verticalAngle, multiply).toString();
@@ -132,7 +196,7 @@ class Vector {
    * Adds another vector's X axis or certain number to this one,
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number you want to add to this one,
+   * @param {Vector} vec - The other vector or number you want to add to this one,
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -155,7 +219,7 @@ class Vector {
    * Adds another vector's Y axis or certain number to this one,
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number you want to add to this one,
+   * @param {Vector} vec - The other vector or number you want to add to this one,
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -178,7 +242,7 @@ class Vector {
    * Adds another vector or number to this one
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number you want to add to this one,
+   * @param {Vector} vec - The other vector or number you want to add to this one,
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -197,7 +261,7 @@ class Vector {
    * minus another vector's X axis or certain number to this one,
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number you want to minus to this one,
+   * @param {Vector} vec - The other vector or number you want to minus to this one,
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -220,7 +284,7 @@ class Vector {
    * minus another vector's Y axis or certain number to this one,
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number you want to minus to this one,
+   * @param {Vector} vec - The other vector or number you want to minus to this one,
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -243,7 +307,7 @@ class Vector {
    * minus another vector or certain number to this one,
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number you want to minus to this one,
+   * @param {Vector} vec - The other vector or number you want to minus to this one,
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -263,7 +327,7 @@ class Vector {
    * Divides X axis by another vector's X axis or certain number
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number
+   * @param {Vector} vec - The other vector or number
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -286,7 +350,7 @@ class Vector {
    * Divides Y axis by another vector's Y axis or certain number
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number
+   * @param { Vector} vec - The other vector or number
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -309,7 +373,7 @@ class Vector {
    * Divides by another vector's or certain number
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number
+   * @param {Vector} vec - The other vector or number
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -329,7 +393,7 @@ class Vector {
    * multiplies X axis by another vector's X axis or certain number
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number
+   * @param {Vector} vec - The other vector or number
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -352,7 +416,7 @@ class Vector {
    * multiplies Y axis by another vector's Y axis or certain number
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number
+   * @param {Vector} vec - The other vector or number
    * @return {Vector}
    * @memberof Vector
    * @example
@@ -375,7 +439,7 @@ class Vector {
    * multiplies by another vector's or certain number
    *
    *
-   * @param {(Vector| Number)} vec - The other vector or number
+   * @param {Vector} vec - The other vector or number
    * @return {Vector}
    * @memberof Vector
    * @example

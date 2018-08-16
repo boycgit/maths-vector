@@ -173,5 +173,3 @@ class DecimalOperatorSystem extends BaseOperatorSystem {
 }
 Vector.SYSTEM = DecimalOperatorSystem;
 ```
-
-## Features
