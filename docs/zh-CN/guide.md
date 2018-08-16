@@ -116,9 +116,9 @@ Vector.SYSTEM = BaseOperatorSystem;
 
 除了上述内置的算术操作体系之外，你可以自定义使用任何其他强大的算术库（[decimal.js](https://github.com/MikeMcl/decimal.js/) 、 \[bignumber.js\](https://github.com/MikeMcl/bignumber.js/ 或者其他）：
 
-> See [here](https://github.com/MikeMcl/big.js/wiki) for some notes on the difference between them.
+> 有关它们之间的差异的一些注释, 请参见 [here](https://github.com/MikeMcl/big.js/wiki)。
 
-**First**, you must implements `IOperatorSystem`:
+**首先**, 必须实现 `IOperatorSystem` 接口:
 
 ```js
 export interface IOperatorSystem<T> {
@@ -134,11 +134,11 @@ export interface IOperatorSystem<T> {
 }
 ```
 
-you can refer to built-in [operator-system/big.js](https://github.com/boycgit/maths-vector/blob/master/src/operator-system/big.js) for detail.
+内置的 [operator-system/big.js](https://github.com/boycgit/maths-vector/blob/master/src/operator-system/big.js) 文件可以为你提供参考写法
 
-**Second**, set `SYSTEM` static variable.
+**其次**, 设置 ` SYSTEM ` 静态变量。
 
-For example:
+举例如下：
 
 ```js
 import { Decimal } from 'decimal.js';
