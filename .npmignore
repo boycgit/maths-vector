@@ -9,4 +9,5 @@ coverage/
 .pagedata.json
 .pagedata.json.lock
 out/
+docs/
 .vscode

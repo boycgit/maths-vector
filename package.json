@@ -28,7 +28,7 @@
     "doc": "jsdoc -c jsdoc.json",
     "doc:md": "jsdoc2md src/*.js > docs/api.md",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
-    "release": "standard-version"
+    "release": "standard-version && git push --follow-tags origin master && npm publish"
   },
   "docsify": {
     "config": {
