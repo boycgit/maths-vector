@@ -9,10 +9,10 @@
 ## features
 
 - immutable, 每个 Vector 实例在调用实例方法后数值不变。(相对应的，[victor](https://github.com/maxkueng/victor/) 库的实例是 mutable 的，你总是得调用其 `clone()` 函数，这也是我创建这个库的原因之一)
-- include [big.js](http://mikemcl.github.io/big.js/), support for arbitrary-precision decimal arithmetic; you can always using other lib (like [bignumber.js](https://github.com/MikeMcl/bignumber.js/) and [decimal.js](https://github.com/MikeMcl/decimal.js/)) with ease by config。
-- manipulation functions are chainable, you can do `new Vector(1,2).add(2).multiply(3).dot(new Vector(4, 5))` and so on;
-- Can be used in both Node.js and the browser
-- Open source, under the MIT license and can be used without restrictions.
+- 内置 [big.js](http://mikemcl.github.io/big.js/), 这样就天然支持任意精度的十进制算术; 而且通过配置使用其他库(比如[bignumber.js](https://github.com/MikeMcl/bignumber.js/)、[decimal.js](https://github.com/MikeMcl/decimal.js/)这些库等)
+- 函数方法都可链式调用，比如 `new Vector(1,2).add(2).multiply(3).dot(new Vector(4, 5))` 等
+- 支持在 Node.js 和浏览器环境使用
+- 开源, 基于 MIT 协议，可自由使用源码
 
 ## 安装
 
@@ -48,7 +48,7 @@ npm run build
 npm test
 ```
 
-## Document
+## 文档
 
 ```bash
 npm run doc
