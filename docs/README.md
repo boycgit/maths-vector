@@ -50,7 +50,11 @@ npm test
 
 ## Document
 
+suggested reading [online document](https://boycgit.github.io/maths-vector/).
+
+or build local api document:
 ```bash
+npm install jsdoc
 npm run doc
 ```
 
