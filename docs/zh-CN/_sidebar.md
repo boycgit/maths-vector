@@ -1,3 +1,3 @@
-* [**Introduce**](/)
-* [**Quick Start**](guide.md)
-* [**API Reference**](api.md)
+* [**简介**](/)
+* [**快速开始**](guide.md)
+* [**API 文档**](api.md)
