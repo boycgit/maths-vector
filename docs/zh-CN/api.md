@@ -618,7 +618,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.projectOnto(vec2) ⇒ [`Vector`](#Vector)
 
-Projects a vector onto another vector, setting itself to the result.
+将当前向量投影到另一个向量上获得的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -639,7 +639,7 @@ var vec = new Vector(100, 0);
 
 ### vector.cosAngleBetween(vec2) ⇒ `Number`
 
-get cos angle between of two angle
+获取两个向量交角的 cos 数值
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - - cos value of angle
@@ -661,7 +661,7 @@ var vec = new Vector(1, 1);
 
 ### vector.angleBetween(vec2) ⇒ `Number`
 
-get angle between of two vector， in radians CCW
+获取两个向量的弧度值
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - - angle between of two vector
