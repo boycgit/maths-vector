@@ -34,7 +34,7 @@ var v1 = new Vector(3, 4),
     v3 = new Vector(8, '5');
 ```
 
-also can create Vector from array or object (should contain `x`、`y` attribute):
+还可以从数组或对象创建向量 (应包含 `x`、`y` 属性):
 
 ```js
 var v4 = Vector.fromArray([3, 4]); // x:3, y:4
@@ -43,7 +43,7 @@ var v5 = Vector.fromObject({x: 3, y: 4}); // x:3, y:4
 
 ## 属性
 
-In keeping with Mathematical concepts, which a Vector is noted by `(x,y)`, so you can access its `x`、`y`、`length`、`angle` attribute:
+与数学概念保持一致, 向量使用 `(x,y)` 表示, 您也可以访问其 `x`、`y`、`length`、`angle` 等属性:
 
 ```js
 var v1 = new Vector(3, 4);
@@ -54,13 +54,13 @@ v1.angle === '0.6435'; // radian
 v1.angleDegree === '30'; // degree
 ```
 
-please pay particular attention to the returned value is always `String` type, based upon support for arbitrary-precision decimal arithmetic, just like [big.js](http://mikemcl.github.io/big.js/) does.
+请特别注意返回的值始终是 `String` 类型, 这是为了支持任意精度十进制算术, 就像 [big.js](http://mikemcl.github.io/big.js/) 库所做的那样。
 
-## Arithmetical operation
+## 算术运算
 
-Not only support standard Vector operation (you can multiply, add, subtract、divide and so on), but also offer your programming convenience. For example:
+不仅支持标准的向量算术操作（加、减、乘、除等）, 还提供编程方面的便利用法。 举个例子：
 
-Standard Vector operation:
+持标准的向量算术操作
 
 ```js
 var v1 = new Vector(1, 2);
