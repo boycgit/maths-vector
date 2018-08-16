@@ -72,14 +72,14 @@ v1.multiply(5).toString(); // x:5, y:10
 v2.divide(5).toString(); // x:0.6, y:0.8
 ```
 
-Follow the mathematical standard，like `multiply` and `divide` operation is not supported for two vectors, but in the program you can apply directly them with two vectors:
+按照数学标准, 例如, 两个向量不支持直接的 `multiply` 和 `divide` 操作, 但在程序中就可以直接应用于两个向量:
 
 ```js
 v1.multiply(v2).toString(); // x:3, y:8
 v1.divide(v2).toString(); // x: 0.3333, y:0.5
 ```
 
-This library also supply Linear Algebra mathematical, such as `dot` prudction、 `cross` production、 `distance` operation:
+该库还提供线性代数数学, 比如 `dot`、`prudction`、`cross` 、distance 操作:
 
 ```js
 var v1 = new Vector(1, 2);
