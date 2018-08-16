@@ -89,32 +89,32 @@ v1.cross(v2).toString(); // -2
 v1.distance(v2).toString(); // 2.8284
 ```
 
-and aslo offer `projectOnto`、`normalize`、`rotate` methods for specific operation, you can move to [API Reference](/api/) for detail.
+此外还提供 `projectOnto`、`normalize`、`rotate` 等方法，更多相信内容请移步 [API 文档](/api/)
 
-## Change Math Operator System
+## 更改算术操作体系
 
-### built-in operator system
+### 内置算术操作体系
 
-As we all known, Numbers in JavaScript has some intersting consequences, so you have to be a little careful with your arithmetic if you're used to math in C or Java.
+众所周知, JavaScript 中的数字有一些有趣的结果, 如果你习惯于 C 或 Java 中的数学, 那么你必须对 Js 中的算术运算要保持谨慎。
 
-> You can check out [this MDN Article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Numbers) on JavaScript
+> 有关 JavaScript 中算术运算问题，可参考 [这篇文章](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript#Numbers)
 
-If you want arbitrary-precision decimal arithmetic operation, prefer to use third -party library, for example, [big.js](http://mikemcl.github.io/big.js/)、 [bignumber.js](https://github.com/MikeMcl/bignumber.js/)、[decimal.js](https://github.com/MikeMcl/decimal.js/) and so on;
+如果需要任意精度的十进制算术运算, 推荐使用第三方库, 例如 [big.js](http://mikemcl.github.io/big.js/)、[bignumber.js](https://github.com/MikeMcl/bignumber.js/)、[decimal.js](https://github.com/MikeMcl/decimal.js/) 等;
 
-For this purpose, this library default uses built-in [big.js](http://mikemcl.github.io/big.js/) (Only 5.9 KB minified), so you can practice arbitrary-precision decimal arithmetic, to avoid introducing it frequently.
+为此, 此库默认内置了 [big.js](http://mikemcl.github.io/big.js/) (仅 5.9 KB 缩小) 这个工具库, 方便您进行任意精度的十进制算术, 避免频繁地引入它。
 
-If you want native Math Operator, just set `SYSTEM` static member variable:
+当然，如果你想要 JavaScript 内置的 Math 操作体系，只需要设置 `SYSTEM` 这个静态变量即可：
 
 ```js
 // use native Math
 Vector.SYSTEM = BaseOperatorSystem;
 ```
 
-just simple and easy.
+就这么简单容易
 
-### customize operator system
+### 自定义算术操作体系
 
-Besides,in order to use more powerful arithmetic library （[decimal.js](https://github.com/MikeMcl/decimal.js/) or \[bignumber.js\](https://github.com/MikeMcl/bignumber.js/ or others）, you can customize operator system.
+除了上述内置的算术操作体系之外，你可以自定义使用任何其他强大的算术库（[decimal.js](https://github.com/MikeMcl/decimal.js/) 、 \[bignumber.js\](https://github.com/MikeMcl/bignumber.js/ 或者其他）：
 
 > See [here](https://github.com/MikeMcl/big.js/wiki) for some notes on the difference between them.
 
