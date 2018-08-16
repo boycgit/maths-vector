@@ -1,32 +1,32 @@
 # Quick Start
 
-## Installation
+## 安装
 
 ```js
 npm install maths-vector --save
 ```
 
-For commonjs:
+Commonjs 方式：
 
 ```js
 var Vector = require('maths-vector');
 ```
 
-For ES6:
+ES6 用法:
 
 ```js
 import Vector from 'maths-vector';
 ```
 
-or using in browser:
+或者在浏览器中使用:
 
 ```js
 <script src="./dist/vector.umd.js"></script>
 ```
 
-## Basic usage
+## 基本用法
 
-By convention, we usually create Vector with two params, support string、number primitive value:
+按照惯例, 我们通常用两个参数创建向量, 支持 string、number 原始值:
 
 ```js
 var v1 = new Vector(3, 4),
@@ -41,7 +41,7 @@ var v4 = Vector.fromArray([3, 4]); // x:3, y:4
 var v5 = Vector.fromObject({x: 3, y: 4}); // x:3, y:4
 ```
 
-## Attribute
+## 属性
 
 In keeping with Mathematical concepts, which a Vector is noted by `(x,y)`, so you can access its `x`、`y`、`length`、`angle` attribute:
 
