@@ -10,8 +10,9 @@
 
 - immutable, a Vector is not changed by its methods.([victor](https://github.com/maxkueng/victor/) is mutable，you should always call it's clone() function, so I had to create this new repo)
 - include [big.js](http://mikemcl.github.io/big.js/), support for arbitrary-precision decimal arithmetic; you can always using other lib (like [bignumber.js](https://github.com/MikeMcl/bignumber.js/) and [decimal.js](https://github.com/MikeMcl/decimal.js/)) with ease by config。
-- functions are chainable, you can do `new Vector(1,2).add(2).multiply(3).dot(new Vector(4, 5))` and so on;
-- 
+- manipulation functions are chainable, you can do `new Vector(1,2).add(2).multiply(3).dot(new Vector(4, 5))` and so on;
+- Can be used in both Node.js and the browser
+- Open source, under the MIT license and can be used without restrictions.
 
 ## 安装
 
