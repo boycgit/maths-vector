@@ -114,7 +114,7 @@ Vector.SYSTEM = BaseOperatorSystem;
 
 ### 自定义算术操作体系
 
-除了上述内置的算术操作体系之外，你可以自定义使用任何其他强大的算术库（[decimal.js](https://github.com/MikeMcl/decimal.js/) 、 \[bignumber.js\](https://github.com/MikeMcl/bignumber.js/ 或者其他）：
+Besides,in order to use more powerful arithmetic library （[decimal.js](https://github.com/MikeMcl/decimal.js/) or [bignumber.js](https://github.com/MikeMcl/bignumber.js/) or others）, you can customize operator system.
 
 > 有关它们之间的差异的一些注释, 请参见 [here](https://github.com/MikeMcl/big.js/wiki)。
 
