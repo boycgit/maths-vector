@@ -29,7 +29,7 @@ class Vector {
   }
 
   /**
-   * Constructor. Will also work without the `new` keyword
+   * Constructor.
    *
    * @param {Number} [x=0] - Value of the x axis
    * @param {Number} [y=0] - Value of the y axis

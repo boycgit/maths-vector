@@ -112,7 +112,7 @@ just simple and easy.
 
 ### customize operator system
 
-Besides,in order to use more powerful arithmetic library （[decimal.js](https://github.com/MikeMcl/decimal.js/) or [bignumber.js](https://github.com/MikeMcl/bignumber.js/ or others）, you can customize operator system.
+Besides,in order to use more powerful arithmetic library （[decimal.js](https://github.com/MikeMcl/decimal.js/) or [bignumber.js](https://github.com/MikeMcl/bignumber.js/) or others）, you can customize operator system.
 > See [here](https://github.com/MikeMcl/big.js/wiki) for some notes on the difference between them.
 
 **First**, you must implements `IOperatorSystem`:
