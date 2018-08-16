@@ -683,7 +683,7 @@ var vec = new Vector(1, 0);
 
 ### vector.distanceX(vec) ⇒ `Number`
 
-Calculates the distance of the X axis between this vector and another
+计算此向量与另一个向量之间的 X 轴距离
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - - Distance
