@@ -706,7 +706,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.absDistanceX(vec) ⇒ `Number`
 
-Same as `distanceX()` but always returns an absolute number
+与 `distanceX` 功能相同, 但返回绝对值
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - - Absolute Distance
@@ -729,7 +729,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.distanceY(vec) ⇒ `Number`
 
-Calculates the distance of the Y axis between this vector and another
+计算此向量与另一个向量之间的 Y 轴距离
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - - Distance
@@ -752,7 +752,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.absDistanceY(vec) ⇒ `Number`
 
-Same as `distanceY()` but always returns an absolute number
+与 `distanceY` 功能相同, 但返回绝对值
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - - Absolute Distance
@@ -775,7 +775,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.distance(vec) ⇒ `Number`
 
-Calculates euclidean distance between this vector and another
+计算此向量与另一个向量之间的距离
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - Distance
@@ -798,7 +798,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.distanceSq(vec) ⇒ `Number`
 
-Calculates the squared euclidean distance between this vector and another If the distance is only needed for comparison, this function is faster than `distance`.
+计算两个向量之间的欧式距离的平方值，如果你对比距离长短，使用该函数速度会比 `distance` 快
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - Distance
@@ -821,7 +821,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.isZero() ⇒ `Boolean`
 
-Returns a true if vector is (0, 0)
+如果 vector 是 (0,0)，则返回 true
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Boolean` - -  
@@ -837,7 +837,7 @@ var vec = new Victor();
 
 ### vector.isEqualTo() ⇒ `Boolean`
 
-Returns a true if this vector is the same as another
+如果两向量数值相同，则返回 true
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Example**
@@ -854,7 +854,7 @@ var vec1 = new Victor(100, 50);
 
 ### vector.toString() ⇒ `String`
 
-Returns an string representation of the vector
+返回向量的字符串形式
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Example**
@@ -870,7 +870,7 @@ var vec = new Victor(10, 20);
 
 ### vector.toArray() ⇒ `Array`
 
-Returns an array representation of the vector
+将向量转换成 array 数据格式
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Example**
@@ -885,7 +885,7 @@ var vec = new Victor(10, 20);
 
 ### vector.toObject() ⇒ `Object`
 
-Returns an object representation of the vector
+将向量转换成对象形式
 
 ### Examples:
 
@@ -903,7 +903,7 @@ var vec = new Victor(10, 20);
 
 ### Vector.fromArray(arr) ⇒ [`Vector`](#Vector)
 
-Creates a new instance from an array
+根据数组创建新的向量实例
 
 **Kind**: static method of [`Vector`](#Vector)
 
@@ -924,7 +924,7 @@ var vec = Vector.fromArray([42, 21]);
 
 ### Vector.fromObject(obj) ⇒ [`Vector`](#Vector)
 
-Creates a new instance from an object
+根据对象创建新的向量实例
 
 **Kind**: static method of [`Vector`](#Vector)  
 **Returns**: [`Vector`](#Vector) - - The new instance
