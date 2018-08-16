@@ -8,7 +8,7 @@
 
 ## features
 
-- immutable, a Vector is not changed by its methods.([victor](https://github.com/maxkueng/victor/) is mutable，you should always call it's clone() function, so I had to create this new repo)
+- immutable, 每个 Vector 实例在调用实例方法后数值不变。(相对应的，[victor](https://github.com/maxkueng/victor/) 库的实例是 mutable 的，你总是得调用其 `clone()` 函数，这也是我创建这个库的原因之一)
 - include [big.js](http://mikemcl.github.io/big.js/), support for arbitrary-precision decimal arithmetic; you can always using other lib (like [bignumber.js](https://github.com/MikeMcl/bignumber.js/) and [decimal.js](https://github.com/MikeMcl/decimal.js/)) with ease by config。
 - manipulation functions are chainable, you can do `new Vector(1,2).add(2).multiply(3).dot(new Vector(4, 5))` and so on;
 - Can be used in both Node.js and the browser
