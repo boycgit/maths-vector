@@ -50,11 +50,16 @@ npm test
 
 ## 文档
 
+suggested reading [online document](https://boycgit.github.io/maths-vector/).
+
+or build local api document:
+
 ```bash
+npm install jsdoc
 npm run doc
 ```
 
-在浏览器中打开所生成的 `out/index.html` 文件
+then open the generated `out/index.html` file in your browser.
 
 ## License
 
