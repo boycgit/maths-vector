@@ -186,7 +186,7 @@ var vec1 = Vector(2, 1);
 
 ### vector.addX(vec) ⇒ [`Vector`](#Vector)
 
-Adds another vector's X axis or certain number to this one,
+将当前向量的 x 轴数值与某个数值或另一个向量的 x 轴数值相加，返回运算后的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -210,7 +210,7 @@ var vec1 = new Vector(10, 10);
 
 ### vector.addY(vec) ⇒ [`Vector`](#Vector)
 
-Adds another vector's Y axis or certain number to this one,
+将当前向量的 y 轴数值与某个数值或另一个向量的 y 轴数值相加，返回运算后的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -234,7 +234,7 @@ var vec1 = new Vector(10, 10);
 
 ### vector.add(vec) ⇒ [`Vector`](#Vector)
 
-Adds another vector or number to this one
+将当前向量与某个数值或另一个向量相加，返回运算后的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -256,7 +256,7 @@ var vec1 = new Vector(10, 10);
 
 ### vector.subtractX(vec) ⇒ [`Vector`](#Vector)
 
-minus another vector's X axis or certain number to this one,
+将当前向量的 x 轴数值与某个数值或另一个向量的 x 轴数值相减，返回运算后的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -280,7 +280,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.subtractY(vec) ⇒ [`Vector`](#Vector)
 
-minus another vector's Y axis or certain number to this one,
+将当前向量的 y 轴数值与某个数值或另一个向量的 y 轴数值相减，返回运算后的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -304,7 +304,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.subtract(vec) ⇒ [`Vector`](#Vector)
 
-minus another vector or certain number to this one,
+将当前向量与某个数值或另一个向量相减，返回运算后的新向量,
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -328,7 +328,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.divideX(vec) ⇒ [`Vector`](#Vector)
 
-Divides X axis by another vector's X axis or certain number
+将当前向量的 x 轴数值与某个数值或另一个向量的 x 轴数值相除，返回运算后的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -352,7 +352,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.divideY(vec) ⇒ [`Vector`](#Vector)
 
-Divides Y axis by another vector's Y axis or certain number
+将当前向量的 y 轴数值与某个数值或另一个向量的 y 轴数值相除，返回运算后的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -376,7 +376,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.divide(vec) ⇒ [`Vector`](#Vector)
 
-Divides by another vector's or certain number
+将当前向量与某个数值或另一个向量相除，返回运算后的新向量,
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -400,7 +400,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.multiplyX(vec) ⇒ [`Vector`](#Vector)
 
-multiplies X axis by another vector's X axis or certain number
+将当前向量的 x 轴数值与某个数值或另一个向量的 x 轴数值相乘，返回运算后的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -424,7 +424,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.multiplyY(vec) ⇒ [`Vector`](#Vector)
 
-multiplies Y axis by another vector's Y axis or certain number
+将当前向量的 y 轴数值与某个数值或另一个向量的 y 轴数值相乘，返回运算后的新向量
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -448,7 +448,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.multiply(vec) ⇒ [`Vector`](#Vector)
 
-multiplies by another vector's or certain number
+将当前向量与某个数值或另一个向量相乘，返回运算后的新向量,
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -472,7 +472,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.invertX() ⇒ [`Vector`](#Vector)
 
-inverts X axis
+x 轴取反，返回新向量
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Example**
@@ -488,7 +488,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.invertY() ⇒ [`Vector`](#Vector)
 
-inverts Y axis
+y 轴取反，返回新向量
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Example**
@@ -503,7 +503,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.invert() ⇒ [`Vector`](#Vector)
 
-inverts both axis
+x、y 轴取反，返回新向量
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Example**
@@ -518,21 +518,21 @@ var vec1 = new Vector(100, 50);
 
 ### vector.normalize() ⇒ [`Vector`](#Vector)
 
-Normalize to unit vector
+归一化成单位向量
 
 **Kind**: instance method of [`Vector`](#Vector)  
 <a name="Vector+norm"></a>
 
 ### vector.norm()
 
-alais of normalize
+normalize 函数的别名
 
 **Kind**: instance method of [`Vector`](#Vector)  
 <a name="Vector+rotate"></a>
 
 ### vector.rotate(angle)
 
-Rotates the vector to a certain angle, in radians CCW from +X axis.
+将当前向量逆时针旋转 angle 弧度
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -552,7 +552,7 @@ var vec = new Vector(100, 0);
 
 ### vector.rotateDegree(degree)
 
-Same as rotate but uses degrees
+与 `rotate` 方法相同, 但使用度数作为单位
 
 **Kind**: instance method of [`Vector`](#Vector)
 
@@ -572,7 +572,7 @@ var vec = new Vector(100, 0);
 
 ### vector.dot(vec2) ⇒ `Number`
 
-Calculates the dot product of this vector and another
+计算当前向量和另一个向量的点积数值
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - - dot product
@@ -595,7 +595,7 @@ var vec1 = new Vector(100, 50);
 
 ### vector.cross(vec2) ⇒ `Number`
 
-Calculates the cross product of this vector and another 在3D图像学中，叉乘的概念非常有用，可以通过两个向量的叉乘，生成第三个垂直于a，b的法向量，从而构建X、Y、Z坐标系 在二维空间中，叉乘还有另外一个几何意义就是：aXb等于由向量a和向量b构成的平行四边形的面积； 定义向量a、b，当aXb<0时（X就表示叉乘），b对应的线段在a的顺时针方向；当aXb=0时，a、b共线；当aXb>0时，b在a的逆时针方向。（注意：aXb=-bXa，因此判断时要注意顺序）
+计算当前向量和另一个向量叉乘的数值；在3D图像学中，叉乘的概念非常有用，可以通过两个向量的叉乘，生成第三个垂直于a，b的法向量，从而构建X、Y、Z坐标系 在二维空间中，叉乘还有另外一个几何意义就是：aXb等于由向量a和向量b构成的平行四边形的面积； 定义向量a、b，当aXb<0时（X就表示叉乘），b对应的线段在a的顺时针方向；当aXb=0时，a、b共线；当aXb>0时，b在a的逆时针方向。（注意：aXb=-bXa，因此判断时要注意顺序）
 
 **Kind**: instance method of [`Vector`](#Vector)  
 **Returns**: `Number` - - cross product
